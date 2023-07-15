@@ -26,6 +26,6 @@ trap 'rm -rf "${OUTPUT_BASE}"' EXIT
   "${GEN_PKG_PATH}"/client "${GEN_PKG_PATH}"/apis \
   core.cs.sap.com:v1alpha1 \
   --output-base "${OUTPUT_BASE}"/ \
-  --go-header-file ./hack/LICENSE_BOILERPLATE.txt
+  --go-header-file ./hack/boilerplate.go.txt
 
 rm -rf "./pkg/client" && cp -Rf "${OUTPUT_BASE}"/"${GEN_PKG_PATH}" .
