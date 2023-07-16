@@ -30,23 +30,10 @@ runs:
       printenv INPUT_BOILERPLATE_CONTENT | YEAR=$this_year REPOSITORY=$repository envsubst > $tempdir/boilerplate-this-year
       printenv INPUT_BOILERPLATE_CONTENT | YEAR=$last_year REPOSITORY=$repository envsubst > $tempdir/boilerplate-last-year
 
-      #if diff -q $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-this-year >/dev/null; then
-      #  exit 0
-      #fi
-      #if diff -q $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-last-year >/dev/null; then
-      #  >&1 echo "Warning: license boilerplate outdated ($last_year); next year, this will result in an error."
-      #  exit 0
-      #fi
-      cat $tempdir/boilerplate-this-year
-      echo "***"
-      cat $tempdir/boilerplate-last-year
-      echo "***"
-      cat $INPUT_BOILERPLATE_PATH
-      echo "***"
-      if diff $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-this-year; then
+      if diff -q $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-this-year >/dev/null; then
         exit 0
       fi
-      if diff $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-last-year; then
+      if diff -q $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-last-year >/dev/null; then
         >&1 echo "Warning: license boilerplate outdated ($last_year); next year, this will result in an error."
         exit 0
       fi

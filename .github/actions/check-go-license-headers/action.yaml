@@ -13,8 +13,8 @@ runs:
   - name: Check files
     shell: ruby {0}
     env:
-      INPUT_BASE_PATH=${{ inputs.base-path }}
-      INPUT_BOILERPLATE_PATH=${{ inputs.boilerplate-path }}
+      INPUT_BASE_PATH: ${{ inputs.base-path }}
+      INPUT_BOILERPLATE_PATH: ${{ inputs.boilerplate-path }}
     run: |
       base_path = ENV["INPUT_BASE_PATH"]
       raise "Input parameter base-path must not start with slash" if base_path.start_with?("/")
