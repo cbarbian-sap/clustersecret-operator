@@ -75,12 +75,11 @@ jobs:
       run: |
         make generate
         echo "Running 'git status' ..."
-        git status --porcelain | tee status.out
-        if [[ -s status.out ]]; then
+        if [ -z "$(git status --porcelain)" ]; then
+          echo "Generated artifacts are up-to-date."
+        else
           >&1 echo "Generated artifacts are not up-to-date; probably 'make generate' was not run before committing."
           exit 1
-        else
-          echo "Generated artifacts are up-to-date."
         fi
 
   build-docker_controller:
