@@ -18,6 +18,7 @@ runs:
     shell: bash
     run: |
       set -x
+      env
       this_year=$(date +%Y)
       last_year=$((this_year-1))
       repository=$(echo $GITHUB_REPOSITORY | cut -d/ -f2)
