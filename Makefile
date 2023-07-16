@@ -41,10 +41,6 @@ test-controller:
 test-webhook:
 	@go test -v ./internal/admission
 
-# generate manifests
-.PHONY: manifests
-manifests:
-
 # generate code
 .PHONY: generate
 generate:

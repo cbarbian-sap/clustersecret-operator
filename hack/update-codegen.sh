@@ -11,6 +11,7 @@ fi
 
 cd $(dirname "${BASH_SOURCE[0]}")/..
 
+go mod download k8s.io/code-generator
 CODEGEN_PKG=$(go list -m -f '{{.Dir}}' k8s.io/code-generator)
 GEN_PKG_PATH=$(go list -m)/pkg
 OUTPUT_BASE=$(mktemp -d)
