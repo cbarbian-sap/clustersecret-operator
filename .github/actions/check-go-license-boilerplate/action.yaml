@@ -16,6 +16,9 @@ runs:
   steps:
   - name: Check boilerplate file
     shell: bash
+    env:
+      INPUT_BOILERPLATE_PATH: ${{ inputs.boilerplate-path }}
+      INPUT_BOILERPLATE_CONTENT: ${{ inputs.boilerplate-content }}
     run: |
       set -x
       env
