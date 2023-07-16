@@ -44,14 +44,14 @@ jobs:
         token: ${{ secrets.WORKFLOW_USER_GH_TOKEN }}
 
     - name: Setup semver
-      uses: .github/actions/setup-semver
+      uses: ./.github/actions/setup-semver
       with:
         version: ${{ env.SEMVER_VERSION }}
         install-directory: ${{ runner.temp }}/bin
 
     - name: Determine current release
       id: get_current_release
-      uses: .github/actions/get-highest-tag
+      uses: ./.github/actions/get-highest-tag
       with:
         prefix: ${{ env.TAG_PREFIX }}
 

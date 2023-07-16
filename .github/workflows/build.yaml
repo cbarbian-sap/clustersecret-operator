@@ -67,7 +67,7 @@ jobs:
         END
 
     - name: Check that license headers are correct
-      uses: .github/actions/check-go-license-headers
+      uses: ./.github/actions/check-go-license-headers
       with:
         boilerplate-path: hack/boilerplate.go.txt
 
