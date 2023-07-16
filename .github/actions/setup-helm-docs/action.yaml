@@ -3,18 +3,16 @@ description: Setup helm-docs
 inputs:
   version:
     description: Version
-    required: true
     default: latest
   install-directory:
     description: Target installation directory
-    required: false
     default: '$HOME/.helm-docs/bin'
 outputs:
   path:
     description: Path to the installed helm-docs executable
     value: ${{ steps.install.outputs.path }}
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Install helm-docs
       id: install
