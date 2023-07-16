@@ -37,6 +37,12 @@ runs:
       #  >&1 echo "Warning: license boilerplate outdated ($last_year); next year, this will result in an error."
       #  exit 0
       #fi
+      cat $tempdir/boilerplate-this-year
+      echo "***"
+      cat $tempdir/boilerplate-last-year
+      echo "***"
+      cat $INPUT_BOILERPLATE_PATH
+      echo "***"
       if diff $INPUT_BOILERPLATE_PATH $tempdir/boilerplate-this-year; then
         exit 0
       fi
@@ -44,5 +50,6 @@ runs:
         >&1 echo "Warning: license boilerplate outdated ($last_year); next year, this will result in an error."
         exit 0
       fi
+
       >&1 echo "Error: incorrect license boilerplate."
       exit 1
