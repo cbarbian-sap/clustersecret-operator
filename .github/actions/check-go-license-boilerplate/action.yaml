@@ -6,7 +6,7 @@ inputs:
     required: true
   boilerplate-content:
     description: License boilerplate content
-    default: |
+    default: |-
       /*
       SPDX-FileCopyrightText: ${YEAR} SAP SE or an SAP affiliate company and ${REPOSITORY} contributors
       SPDX-License-Identifier: Apache-2.0
