@@ -19,7 +19,7 @@ runs:
     run: |
       this_year=$(date +%Y)
       last_year=$((this_year-1))
-      repository=$(echo ${{ github.repository }} | cut -d/ -f2)
+      repository=$(echo $GITHUB_REPOSITORY | cut -d/ -f2)
 
       tempdir=$(mktemp -d)
       trap 'rm -rf $tempdir' EXIT
