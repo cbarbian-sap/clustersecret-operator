@@ -24,8 +24,8 @@ runs:
       tempdir=$(mktemp -d)
       trap 'rm -rf $tempdir' EXIT
 
-      printenv INPUT_BOILERPLATE_CONTENT | YEAR=$this_year REPOSITORY=$repository envsubst > > $tempdir/boilerplate-this-year
-      printenv INPUT_BOILERPLATE_CONTENT | YEAR=$last_year REPOSITORY=$repository envsubst > > $tempdir/boilerplate-last-year
+      printenv INPUT_BOILERPLATE_CONTENT | YEAR=$this_year REPOSITORY=$repository envsubst > $tempdir/boilerplate-this-year
+      printenv INPUT_BOILERPLATE_CONTENT | YEAR=$last_year REPOSITORY=$repository envsubst > $tempdir/boilerplate-last-year
 
       if diff -q $boilerplate $tempdir/boilerplate-this-year >/dev/null; then
         exit 0
